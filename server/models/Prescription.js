@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const prescriptionSchema = mongoose.Schema(
+const prescriptionSchema = new mongoose.Schema(
   {
     patientId: {
       type: mongoose.Schema.Types.ObjectId,

@@ -7,15 +7,18 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true },
     role: { type: String, enum: ["patient", "doctor"], required: true },
     profile: {
-      age: Number,
-      gender: String,
-      phone: String,
-      medicalHistory: [String],
-      specialization: String,
-      licenseNumber: String,
-      availability: [String],
+      dateOfBirth: { type: Date, required: true },
+      gender: {
+        type: String,
+        enum: ["Male", "Female", "Non-binary"],
+        required: true,
+      },
+      phone: { type: String },
+      specialization: { type: String },
+      licenseNumber: { type: String },
     },
   },
   { timestamps: true }
 );
+
 module.exports = mongoose.model("User", userSchema);
